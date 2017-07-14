@@ -10,7 +10,7 @@ node {
       // **       in the global configuration.           
    }
    stage('Build') {
-       docker.withRegistry('http://docker.io', 'docker-hub-credentials') {
+       docker.withRegistry('https://docker.io', 'docker-hub-credentials') {
           def app = docker.build("harshals/voting-frontend:${version}")
           app.push("${version}")
        }
