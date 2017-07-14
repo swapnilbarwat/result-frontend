@@ -16,17 +16,20 @@ node {
        }
     }
 }
-stage "Deploy to dev. Mouse hover to select the option."
-input message: 'Do you want to deploy?', submitter: 'Yes'
+stage "Approve deployment? "
+input message: 'Deploy to cluster?', submitter: 'Yes'
 node {
-   stage('deployment to dev') { // for display purposes
+   stage('50-50% deployment') { // for display purposes
      echo "This will checkout blueprint yaml and deploy"
    }
 }
-stage "Deploy to production. Mouse hover to select the option."
-input message: 'Do you want to deploy?', submitter: 'Yes'
+stage "Move full"
+input message: 'Deploy to full cluster?', submitter: 'Yes'
 node {
-   stage('deployment to production') { // for display purposes
+   stage('Move full') { // for display purposes
+     echo "This will checkout blueprint yaml and deploy to production"
+   }
+   stage('undeploy previous version') { // for display purposes
      echo "This will checkout blueprint yaml and deploy to production"
    }
 }
