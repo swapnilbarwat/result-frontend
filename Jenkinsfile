@@ -16,18 +16,18 @@ node {
        }
     }
 }
+
 node {
    stage('50-50% deployment') { // for display purposes
       input message: 'Deploy to cluster? This will rollout new build to 50% cluster.'
    }
 }
-stage "Move full"
-input message: 'Deploy to full cluster?', submitter: 'Yes'
+
 node {
-   stage('Move full') { // for display purposes
-     echo "This will checkout blueprint yaml and deploy to production"
+   stage('move full') { // for display purposes
+      input message: 'Deploy to full cluster?'
    }
-   stage('undeploy previous version') { // for display purposes
-     echo "This will checkout blueprint yaml and deploy to production"
+   stage('undeploy previous version') {
+      echo "undeploying cluster"
    }
 }
