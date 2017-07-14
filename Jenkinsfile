@@ -24,6 +24,7 @@ node {
               parameters: [choice(name: 'Tag on Docker Hub', choices: 'no\nyes', description: 'Choose "yes" if you want to deploy this build')]
         }
     }
+  }
 }
 stage "Move full"
 input message: 'Deploy to full cluster?', submitter: 'Yes'
