@@ -16,11 +16,11 @@ node {
        }
     }
 }
-stage "Approve deployment? "
-input message: 'Deploy to cluster?', submitter: 'Yes'
 node {
    stage('50-50% deployment') { // for display purposes
-     echo "This will checkout blueprint yaml and deploy"
+   stage "Approve deployment?"
+   input message: 'Deploy to cluster?', submitter: 'Yes'
+   echo "This will checkout blueprint yaml and deploy"
    }
 }
 stage "Move full"
