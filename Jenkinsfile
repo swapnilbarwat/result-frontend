@@ -10,8 +10,8 @@ node {
       // **       in the global configuration.           
    }
    stage('Build') {
-       docker.withRegistry('http://docker.io') {
-          def app = docker.build "harshals/voting-frontend:${version}"
+       docker.withRegistry('http://gcr.io', 'vampdemo') {
+          def app = docker.build "vampify/voting-frontend:${version}"
           app.push("${version}")
        }
     }
