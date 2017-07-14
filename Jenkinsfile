@@ -11,7 +11,7 @@ node {
    }
    stage('Build') {
        docker.withRegistry('http://docker.io', 'docker-hub-credentials') {
-          def app = docker.build "harshals/voting-frontend:${version}"
+          def app = docker.build "voting-frontend:${version}"
           app.push("${version}")
        }
     }
