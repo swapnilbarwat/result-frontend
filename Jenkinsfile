@@ -19,7 +19,6 @@ node {
 node {
    stage('50-50% deployment') { // for display purposes
    input(message: 'Deploy to cluster?', ok: 'Yes', 
-         parameters: [booleanParam(defaultValue: true, 
          description: 'Yes will deploy to 50% of cluster',name: 'Yes?')])
   }
 }
