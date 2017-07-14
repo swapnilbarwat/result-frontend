@@ -18,7 +18,7 @@ node {
 }
 node {
    stage('50-50% deployment') { // for display purposes
-      input message: 'Deploy to cluster? This will rollout new build to 50% cluster.', submitter: 'Yes'
+      input message: 'Deploy to cluster? This will rollout new build to 50% cluster.'
    }
 }
 stage "Move full"
