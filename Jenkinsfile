@@ -2,7 +2,7 @@ def version = ''
 node {
    stage('checkout') { // for display purposes
       // Get some code from a GitHub repository
-      git 'https://github.com/swapnilbarwat/voting-frontend.git'
+      git 'https://github.com/swapnilbarwat/result-frontend.git'
       version = readFile('version').trim()
       currentBuild.displayName = "${version}-${env.BRANCH_NAME}"
       // Get the Maven tool.
@@ -11,8 +11,8 @@ node {
    }
    stage('Build') {
        docker.withRegistry('https://docker.io', 'docker-hub-credentials') {
-          def app = docker.build("harshals/voting-frontend:${version}")
-          sh "docker push docker.io/harshals/voting-frontend:${version}"
+          def app = docker.build("harshals/result-frontend:${version}")
+          sh "docker push docker.io/harshals/result-frontend:${version}"
        }
     }
 }
