@@ -18,10 +18,9 @@ node {
 }
 node {
    stage('50-50% deployment') { // for display purposes
-     script {
-          env.TAG_ON_DOCKER_HUB = input message: 'User input required',
-              parameters: [choice(name: 'Tag on Docker Hub', choices: 'no\nyes', description: 'Choose "yes" if you want to deploy this build')]
-     }
+   input(message: 'Deploy to cluster?', ok: 'Yes', 
+         parameters: [booleanParam(defaultValue: true, 
+         description: 'Yes will deploy to 50% of cluster',name: 'Yes?')])
   }
 }
 stage "Move full"
