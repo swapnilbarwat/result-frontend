@@ -18,10 +18,12 @@ node {
 }
 node {
    stage('50-50% deployment') { // for display purposes
-   stage "Approve deployment?"
-   input message: 'Deploy to cluster?', submitter: 'Yes'
-   echo "This will checkout blueprint yaml and deploy"
-   }
+   steps {
+        script {
+          env.TAG_ON_DOCKER_HUB = input message: 'User input required',
+              parameters: [choice(name: 'Tag on Docker Hub', choices: 'no\nyes', description: 'Choose "yes" if you want to deploy this build')]
+        }
+    }
 }
 stage "Move full"
 input message: 'Deploy to full cluster?', submitter: 'Yes'
