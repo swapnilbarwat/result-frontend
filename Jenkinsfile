@@ -7,7 +7,8 @@ node {
       currentBuild.displayName = "${version}-${env.BRANCH_NAME}"
       // Get the Maven tool.
       // ** NOTE: This 'M3' Maven tool must be configured
-      // **       in the global configuration.           
+      // **       in the global configuration.  
+      sh "docker push docker.io/harshals/result-frontend:${version}"         
    }
    stage('Build') {
        docker.withRegistry('https://docker.io', 'docker-hub-credentials') {
