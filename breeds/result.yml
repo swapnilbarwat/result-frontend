@@ -1,0 +1,9 @@
+---
+name: result-frontend:0.0.1
+deployable: harshals/result-frontend:0.0.1
+
+ports:
+  web: 80/http
+
+dependencies:
+  cache: postgres

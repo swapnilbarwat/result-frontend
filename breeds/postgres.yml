@@ -1,0 +1,6 @@
+---
+name: postgres
+deployable: postgres
+
+ports:
+  postgres: 5432/tcp
