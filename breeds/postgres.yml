@@ -1,5 +1,2 @@
 name: postgres
-metadata: {}
 deployable: postgres
-ports: 
-  postgres: 5432
