@@ -14,8 +14,8 @@ node {
           def app = docker.build("harshals/result-frontend:${version}")
           sh "docker push docker.io/harshals/result-frontend:${version}"
        }
-       sh "vamp create breed --file breeds/postgres.yml"
-       sh "vamp create breed --file breeds/result.yml"
+       sh "/var/lib/jenkins/vamp/vamp-cli-0.7.9/bin/vamp create breed --file breeds/postgres.yml"
+       sh "/var/lib/jenkins/vamp/vamp-cli-0.7.9/bin/vamp create breed --file breeds/result.yml"
     }
 }
 
