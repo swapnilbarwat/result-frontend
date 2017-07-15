@@ -1,7 +1,6 @@
 name: postgres
 kind: breed
 metadata: {}
-deployable:
-  type: postgres
+deployable: postgres
 ports: 
   postgres: 5432
