@@ -9,6 +9,9 @@ node {
       // ** NOTE: This 'M3' Maven tool must be configured
       // **       in the global configuration.           
    }
+   environment {
+     VAMP_HOST= 'http://104.197.251.15:8080'
+   }
    stage('Build') {
        docker.withRegistry('https://docker.io', 'docker-hub-credentials') {
           def app = docker.build("harshals/result-frontend:${version}")
