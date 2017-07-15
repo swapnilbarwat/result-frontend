@@ -1,5 +1,4 @@
 name: postgres
-kind: breed
 metadata: {}
 deployable: postgres
 ports: 
