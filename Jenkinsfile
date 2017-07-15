@@ -9,16 +9,15 @@ node {
       // ** NOTE: This 'M3' Maven tool must be configured
       // **       in the global configuration.           
    }
-   environment {
-     VAMP_HOST= 'http://104.197.251.15:8080'
-   }
    stage('Build') {
        docker.withRegistry('https://docker.io', 'docker-hub-credentials') {
           def app = docker.build("harshals/result-frontend:${version}")
           sh "docker push docker.io/harshals/result-frontend:${version}"
        }
-       sh "/var/lib/jenkins/vamp/vamp-cli-0.7.9/bin/vamp create breed --file breeds/postgres.yml"
-       sh "/var/lib/jenkins/vamp/vamp-cli-0.7.9/bin/vamp create breed --file breeds/result.yml"
+       withEnv(["VAMP_HOST=http://104.197.251.15:8080"]) {
+          sh "/var/lib/jenkins/vamp/vamp-cli-0.7.9/bin/vamp create breed --file breeds/postgres.yml"
+          sh "/var/lib/jenkins/vamp/vamp-cli-0.7.9/bin/vamp create breed --file breeds/result.yml"
+       }
     }
 }
 
