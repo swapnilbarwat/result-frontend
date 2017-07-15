@@ -1,5 +1,5 @@
-name: postgres
+--- 
 deployable: postgres
-
-ports:
+name: postgres
+ports: 
   postgres: 5432/tcp
