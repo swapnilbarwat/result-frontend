@@ -6,4 +6,4 @@ deployable:
    definition: postgres
 
 ports:
-  web: 5432/tcp
+  postgres: 5432
