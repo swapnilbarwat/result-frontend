@@ -1,2 +1,9 @@
+---
 name: postgres
-deployable: postgres
+
+deployable: 
+   type: container/docker
+   definition: postgres
+
+ports:
+  web: 5432/tcp
