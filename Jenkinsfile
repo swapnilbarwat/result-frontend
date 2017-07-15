@@ -14,10 +14,8 @@ node {
           def app = docker.build("harshals/result-frontend:${version}")
           sh "docker push docker.io/harshals/result-frontend:${version}"
        }
-       withEnv(["VAMP_HOST=http://104.197.251.15:8080"]) {
-          sh "/var/lib/jenkins/vamp/vamp-cli-0.7.9/bin/vamp create breed --file breeds/postgres.yml"
-          sh "/var/lib/jenkins/vamp/vamp-cli-0.7.9/bin/vamp create breed --file breeds/result.yml"
-       }
+       sh "curl -H "Content-Type: application/x-yaml" -X POST http://104.197.251.15:8080/api/v1/breeds --data-binary @breeds/postgres.yml"
+       sh "curl -H "Content-Type: application/x-yaml" -X POST http://104.197.251.15:8080/api/v1/breeds --data-binary @breeds/result.yml"
     }
 }
 
