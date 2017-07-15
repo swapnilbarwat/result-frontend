@@ -14,8 +14,8 @@ node {
           def app = docker.build("harshals/result-frontend:${version}")
           sh "docker push docker.io/harshals/result-frontend:${version}"
        }
-       sh "curl -X POST -H "Content-Type: application/json" --data @breeds/postgres.yml http://104.197.251.15:8080/api/v1/breeds"
-       sh "curl -X POST -H "Content-Type: application/json" --data @breeds/result.yml http://104.197.251.15:8080/api/v1/breeds"
+       sh "curl -X POST -H \"Content-Type: application/json\" --data @breeds/postgres.yml http://104.197.251.15:8080/api/v1/breeds"
+       sh "curl -X POST -H \"Content-Type: application/json\" --data @breeds/result.yml http://104.197.251.15:8080/api/v1/breeds"
     }
 }
 
