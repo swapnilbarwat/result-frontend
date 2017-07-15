@@ -1,5 +1,7 @@
----
-deployable: postgres
 name: postgres
-ports:
-  postgres: 5432/tcp
+kind: breed
+metadata: {}
+deployable:
+  type: postgres
+ports: 
+  postgres: 5432
