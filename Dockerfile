@@ -10,6 +10,7 @@ RUN npm install && npm ls
 ADD . /app
 
 ENV PORT 80
+ENV POSTGRES_HOST=127.0.0.1
 EXPOSE 80
 
 CMD ["node", "server.js"]

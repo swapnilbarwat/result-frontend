@@ -1,8 +1,8 @@
 name: result-frontend:0.0.1
 deployable: harshals/result-frontend:0.0.1
-
 ports:
   web: 80/http
-
+environment_variables:         # required settings
+  POSTGRES_HOST: $postgres_db.host
 dependencies:
-  cache: postgres
+  postgres_db: postgres

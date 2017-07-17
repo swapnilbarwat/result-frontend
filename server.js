@@ -7,6 +7,7 @@ var express = require('express'),
     app = express(),
     server = require('http').Server(app),
     io = require('socket.io')(server);
+    POSTGRES=process.env.POSTGRES_HOST
 
 io.set('transports', ['polling']);
 
@@ -24,7 +25,7 @@ io.sockets.on('connection', function (socket) {
 async.retry(
   {times: 1000, interval: 1000},
   function(callback) {
-    pg.connect('postgres://postgres@db/postgres', function(err, client, done) {
+    pg.connect("postgres://" + POSTGRES_HOST + "@db/postgres", function(err, client, done) {
       if (err) {
         console.error("Waiting for db");
       }
